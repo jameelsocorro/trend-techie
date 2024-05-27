@@ -17,6 +17,7 @@ export const getBlogBySlug = async (slug: string) => {
     options: { parseFrontmatter: true },
   });
   return {
+    source: fileContent,
     frontmatter,
     content,
     slug: path.parse(fileName).name,

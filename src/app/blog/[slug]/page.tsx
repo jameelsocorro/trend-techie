@@ -1,18 +1,16 @@
-import { getAllBlogSlug, getBlogBySlug } from "@/lib/mdxUtil";
+import { Mdx } from "@/components/ui/mdx";
+import { getAllBlogSlug, getBlogBySlug } from "@/lib/mdxUtils";
+import { Suspense } from "react";
 
-export async function generateStaticParams() {
-  return getAllBlogSlug();
-}
-
-export default async function BlogPage({
-  params,
-}: {
+type BlogPageProps = {
   params: { slug: string };
-}) {
+};
+
+export default async function BlogPage({ params }: BlogPageProps) {
   const blog = await getBlogBySlug(params.slug);
   return (
     <main className="prose">
-      <article>{blog.content}</article>
+      <Mdx source={blog.source} />
     </main>
   );
 }

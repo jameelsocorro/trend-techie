@@ -1,4 +1,4 @@
-import { getBlogs } from "@/lib/mdxUtil";
+import { getBlogs } from "@/lib/mdxUtils";
 import Link from "next/link";
 
 export default async function BlogsPage() {
